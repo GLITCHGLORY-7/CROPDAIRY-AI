@@ -1,0 +1,108 @@
+[
+  {
+    "request_id": "eval-001",
+    "status": "SUCCESS",
+    "agent_response": {
+      "status": "COMPLETED",
+      "query": "Paddy leaves showing spindle lesions with grey centre. Rain expected tomorrow in Thanjavur.",
+      "model": "gemini-1.5-flash",
+      "plan_executed": [
+        "diagnose_crop",
+        "check_weather_alerts"
+      ],
+      "evidence": {
+        "diagnose_crop": {
+          "diagnosis": "Rice Blast (Pyricularia oryzae)",
+          "confidence": 0.82,
+          "urgency": "high",
+          "ipm_practices": [
+            "Maintain 2-3 cm shallow water level in field.",
+            "Avoid split nitrogen applications until leaf spots cease spreading.",
+            "Spray Pseudomonas fluorescens biological culture @ 10g/L."
+          ],
+          "chemical_fallback": "Tricyclazole 75% WP @ 0.6g/L (Mandatory PPE, 21-day pre-harvest interval).",
+          "prohibited_chemicals": [
+            "Monocrotophos (WHO Class Ib - Prohibited)"
+          ]
+        },
+        "check_weather_alerts": {
+          "latitude": 10.787,
+          "longitude": 79.1378,
+          "current_temp_c": 29.5,
+          "humidity_pct": 78,
+          "forecast_rain_mm_24h": 18.5,
+          "spray_window": "POOR - High risk of pesticide wash-off due to expected rain within 12 hours.",
+          "irrigation_advisory": "POSTPONE irrigation; natural precipitation will satisfy soil moisture deficit."
+        }
+      },
+      "timestamp": "2026-10-30T13:40:34.880192",
+      "recommendation": "Identified Condition: Rice Blast (Pyricularia oryzae) (Confidence: 82%). \nRecommended IPM Measures: Maintain 2-3 cm shallow water level in field.; Avoid split nitrogen applications until leaf spots cease spreading.; Spray Pseudomonas fluorescens biological culture @ 10g/L. \nWeather Advisory: POOR - High risk of pesticide wash-off due to expected rain within 12 hours. POSTPONE irrigation; natural precipitation will satisfy soil moisture deficit."
+    }
+  },
+  {
+    "request_id": "eval-002",
+    "status": "SUCCESS",
+    "agent_response": {
+      "status": "COMPLETED",
+      "query": "Calculate my profit per acre on Cotton for Kharif 2025.",
+      "model": "gemini-1.5-flash",
+      "plan_executed": [
+        "query_farm_ledger"
+      ],
+      "evidence": {
+        "query_farm_ledger": {
+          "status": "success",
+          "farm_id": "farm-thanjavur",
+          "plot_id": "plot-1",
+          "season": "Kharif 2025",
+          "total_expenses_inr": 42500,
+          "total_revenue_inr": 78000,
+          "net_profit_inr": 35500,
+          "records_count": 14,
+          "verified_at": "2026-10-30T13:40:34.880192"
+        }
+      },
+      "timestamp": "2026-10-30T13:40:34.880192",
+      "recommendation": "Financial Ledger: Net Profit of Rs 35,500 recorded across 14 activities."
+    }
+  },
+  {
+    "request_id": "eval-003",
+    "status": "SUCCESS",
+    "agent_response": {
+      "status": "COMPLETED",
+      "query": "What subsidies can I get for a 3-acre farm in Tamil Nadu?",
+      "model": "gemini-1.5-flash",
+      "plan_executed": [
+        "match_schemes"
+      ],
+      "evidence": {
+        "match_schemes": [
+          {
+            "id": "pm-kisan",
+            "name": "PM-KISAN Samman Nidhi",
+            "benefit": "Rs 6,000 / year direct benefit transfer in 3 installments",
+            "eligible": true,
+            "verification_url": "https://pmkisan.gov.in"
+          },
+          {
+            "id": "pmfby",
+            "name": "Pradhan Mantri Fasal Bima Yojana",
+            "benefit": "Subsidized crop insurance (1.5% - 2% premium)",
+            "eligible": true,
+            "verification_url": "https://pmfby.gov.in"
+          },
+          {
+            "id": "smam",
+            "name": "Sub-Mission on Agricultural Mechanization (SMAM)",
+            "benefit": "40% - 50% subsidy on farm implements and tractors for small/marginal farmers",
+            "eligible": true,
+            "verification_url": "https://agrimachinery.nic.in"
+          }
+        ]
+      },
+      "timestamp": "2026-10-30T13:40:34.880192",
+      "recommendation": "Eligible Schemes (3): PM-KISAN Samman Nidhi, Pradhan Mantri Fasal Bima Yojana, Sub-Mission on Agricultural Mechanization (SMAM)."
+    }
+  }
+]
